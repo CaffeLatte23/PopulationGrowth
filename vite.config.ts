@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/population-growth/",
+  base: "/PopulationGrowth/",
   plugins: [vue()],
   resolve: {
     alias: {
