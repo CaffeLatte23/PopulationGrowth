@@ -18,9 +18,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
-import type { prefData } from "@/types/api";
+import type { prefData, chartType } from "@/types/api";
 import chart from "@/components/chart.vue";
-import { usePrefStore } from "@/stores/counter";
+import { usePrefStore } from "@/stores/pref";
 
 const store = usePrefStore();
 
@@ -39,7 +39,7 @@ const handleInput = async (e: Event, prefCode: number): Promise<void> => {
   }
 };
 
-const chartData = computed(() => {
+const chartData = computed<chartType[]>(() => {
   return displayList.value.map((element) => {
     return {
       name: store.getPrefNameFromCode(element),

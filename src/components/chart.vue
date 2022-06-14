@@ -4,9 +4,16 @@
 
 <script setup lang="ts">
 import Highcharts from "highcharts";
-import { onMounted, ref, watchEffect } from "vue";
+import { onMounted, ref, watchEffect, withDefaults } from "vue";
+import type { chartType } from "@/types/api";
 
-const props = defineProps(["data"]);
+type Props = {
+  data: chartType[];
+};
+
+const props = withDefaults(defineProps<Props>(), {
+  data: () => [],
+});
 
 const chart = ref<Highcharts.Chart | null>(null);
 watchEffect((): void => {
@@ -81,7 +88,7 @@ const updateChart = (): Highcharts.Chart => {
   });
 };
 
-onMounted(() => {
+onMounted((): void => {
   chart.value = updateChart();
 });
 </script>

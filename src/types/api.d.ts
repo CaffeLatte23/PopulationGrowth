@@ -3,12 +3,12 @@ export interface prefData {
   prefName: string;
 }
 
-type chartType = {
+export type chartType = {
   name: string;
   data: number[];
 };
 
-interface compositionData {
+export interface compositionData {
   boundaryYear: number;
   data: Array<{ label: string; data: Array<{ year: number; value: number }> }>;
 }
