@@ -24,7 +24,7 @@ import { usePrefStore } from "@/stores/pref";
 
 const store = usePrefStore();
 
-const prefList = computed<prefData[]>(() => store.$state.prefList);
+const prefList = computed<prefData[]>(() => store.prefList);
 const displayList = ref<number[]>([]);
 
 const handleInput = async (e: Event, prefCode: number): Promise<void> => {
